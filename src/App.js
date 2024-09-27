@@ -52,7 +52,7 @@ const App = () => {
           color={isEditing ? 'warning' : 'primary'}
           onClick={isEditing ? handleUpdateTodo : handleAddTodo}
           size="large"
-          sx={{ height: '50px' }} // Making the button larger for better visibility
+          sx={{ height: '50px' }} 
         >
           {isEditing ? 'Update' : 'Add'}
         </Button>
@@ -62,36 +62,35 @@ const App = () => {
       <List sx={{ marginTop: 4 }}>
         {todos.map((todo, index) => (
           <React.Fragment key={todo.id}>
-            <ListItem 
-              sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }} // Ensures proper spacing and alignment
+            <ListItem
+              sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}
             >
-              <ListItemText 
-                primary={todo.text} 
-                sx={{ 
-                  overflow: 'hidden', 
-                  textOverflow: 'ellipsis', 
+              <ListItemText
+                primary={todo.text}
+                sx={{
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
                   whiteSpace: 'nowrap',
-                  maxWidth: '70%', // Adjust this width to fit your design
-                }} 
+                  maxWidth: '70%',
+                }}
               />
-              <Box sx={{ display: 'flex', alignItems: 'center' }}> {/* Ensure icons are in a flex container */}
-                <IconButton 
-                  edge="end" 
-                  onClick={() => handleEditTodo(todo)} 
-                  sx={{ color: 'blue', '&:hover': { color: 'darkblue' }, marginRight: 0.5 }} // Added margin to create space
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <IconButton
+                  edge="end"
+                  onClick={() => handleEditTodo(todo)}
+                  sx={{ color: 'blue', '&:hover': { color: 'darkblue' }, marginRight: 0.5 }}
                 >
                   <EditIcon />
                 </IconButton>
-                <IconButton 
-                  edge="end" 
-                  onClick={() => handleDeleteTodo(todo.id)} 
-                  sx={{ color: 'red', '&:hover': { color: 'darkred' } }} // Hover effect for Delete icon
+                <IconButton
+                  edge="end"
+                  onClick={() => handleDeleteTodo(todo.id)}
+                  sx={{ color: 'red', '&:hover': { color: 'darkred' } }}
                 >
                   <DeleteIcon />
                 </IconButton>
               </Box>
             </ListItem>
-            {/* Add a Divider after each item except the last one */}
             {index < todos.length - 1 && <Divider />}
           </React.Fragment>
         ))}
